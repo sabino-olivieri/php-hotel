@@ -39,6 +39,9 @@ $hotels = [
     ],
 
 ];
+$resp = $_GET["parking"] === "true" ? true : false;
+$vote = intval($_GET["vote"]);
+$find = false;
 
 ?>
 
@@ -68,6 +71,7 @@ $hotels = [
                         <option value="false">Senza parcheggio</option>
                     </select>
 
+                    
                     <select class="form-control w-25" name="vote" id="" required>
                         <option value="" disabled selected>Scegli un voto</option>
                         <option value="1">1 stella</option>
@@ -85,6 +89,9 @@ $hotels = [
         <div class="row justify-content-center py-3 g-3 row-cols-1 row-cols-md-3">
 
             <?php foreach ($hotels as $cur_hotel) { ?>
+
+                <?php if($resp === $cur_hotel["parking"] && $cur_hotel["vote"] === $vote) { 
+                    $find=true; ?>
 
                 <div class="col">
 
@@ -111,9 +118,15 @@ $hotels = [
 
 
                 </div>
+
+                <?php } ?>
                 
 
+
+
             <?php } ?>
+
+            <?php if(!$find) { ?> <div class="not_found">Nessu Hotel tovato</div> <?php } ?>
         </div>
 
     </div>
