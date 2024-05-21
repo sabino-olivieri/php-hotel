@@ -1,0 +1,19 @@
+body {
+    background-color: #222222;
+    font-family: sans-serif;
+}
+
+.container {
+
+    background-color: #025f35;
+    border-radius: 10px;
+
+    .fa-star {
+        color: gold;
+    }
+
+    .card {
+        height: 100%;
+    }
+
+}
